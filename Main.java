@@ -139,6 +139,14 @@ public class Main{
 			}
 			return nums;
 		}
+		public List<Integer> readIntArray() throws IOException{
+			List<Integer> list = new ArrayList<Integer>();
+			tokenizer = new StringTokenizer(reader.readLine());
+			while (tokenizer.hasMoreTokens()) {
+				list.add(Integer.parseInt(tokenizer.nextToken()));
+			}
+			return list;
+		}
 
 
 	}
