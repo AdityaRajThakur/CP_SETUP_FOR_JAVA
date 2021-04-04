@@ -5,15 +5,30 @@ import java.util.StringTokenizer;
 public class Main{
 	public static void main(String[] args) throws IOException{
 		// Initialize the reader
-		FastReader reader = new FastReader();
+		FastScanner scan = new FastScanner();
 		// Initialize the writer
-		FastWriter writer = new FastWriter();
+		FastOut out = new FastOut();
 /*********************************************************************************************************************************************/
 		// writer your code here
 		
 
 
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 /*********************************************************************************************************************************************/
 	}
@@ -26,17 +41,37 @@ public class Main{
 
 
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 /**********************************************************************************************************************************************/
 
 	// Fast Reader Class
-	public static class FastReader {
+	public static class FastScanner {
 
 		// Reader object
 		BufferedReader reader;
 
 		// Constructor
-		public FastReader()
+		public FastScanner()
 		{
 
 			// Initialize the reader
@@ -109,13 +144,13 @@ public class Main{
 	}
 
 	// Fast Writer Class
-	public static class FastWriter {
+	public static class FastOut {
 
 		// Writer object
 		BufferedWriter writer;
 
 		// Constructor
-		public FastWriter()
+		public FastOut()
 		{
 
 			// Initialize the writer
