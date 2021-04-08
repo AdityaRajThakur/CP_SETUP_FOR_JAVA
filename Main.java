@@ -64,31 +64,21 @@ public class Main{
 
 /**********************************************************************************************************************************************/
 
-	// Fast Reader Class
 	public static class FastScanner {
 
 		// Reader object
 		BufferedReader reader;
 
 		// Constructor
-		public FastScanner()
-		{
+		public FastScanner() {
 
 			// Initialize the reader
-			reader = new BufferedReader(
-				new InputStreamReader(
-					System.in));
+			reader = new BufferedReader(new InputStreamReader(System.in));
 
-			if (System.getProperty(
-					"ONLINE_JUDGE")
-				== null) {
+			if (System.getProperty("ONLINE_JUDGE") == null) {
 				try {
-					reader = new BufferedReader(
-						new InputStreamReader(
-							new FileInputStream(
-								"input.txt")));
-				}
-				catch (Exception e) {
+					reader = new BufferedReader(new InputStreamReader(new FileInputStream("input.txt")));
+				} catch (Exception e) {
 				}
 			}
 		}
@@ -98,48 +88,47 @@ public class Main{
 
 		// Function to read a
 		// single integer
-		// to extend the fast reader class writer your function here 
+		// to extend the fast reader class writer your function here
 
-		public int readInt()
-			throws IOException
-		{
-			return Integer.parseInt(
-				reader.readLine());
+		public int readInt() throws IOException {
+			return Integer.parseInt(reader.readLine());
 		}
 
 		// Function to read a
 		// single long
-		public long readLong()
-			throws IOException
-		{
-			return Long.parseLong(
-				reader.readLine());
+		public long readLong() throws IOException {
+			return Long.parseLong(reader.readLine());
 		}
+
 		// Function to read string
-		public String readString()
-			throws IOException
-		{
+		public String readString() throws IOException {
 			return reader.readLine();
 		}
+
 		// Function to read a array
 		// of numsInts integers
 		// in one line
-		public int[] readIntArray(int numInts)
-			throws IOException
-		{
+		public int[] readIntArray(int numInts) throws IOException {
 			int[] nums = new int[numInts];
-			tokenizer
-				= new StringTokenizer(
-					reader.readLine());
+			tokenizer = new StringTokenizer(reader.readLine());
 
-			for (int i = 0;
-				i < numInts; i++) {
-				nums[i] = Integer.parseInt(
-					tokenizer.nextToken());
+			for (int i = 0; i < numInts; i++) {
+				nums[i] = Integer.parseInt(tokenizer.nextToken());
 			}
 			return nums;
 		}
-		public List<Integer> readIntArray() throws IOException{
+		public Long[] readLongArray(int n)throws IOException{
+			tokenizer = new StringTokenizer(reader.readLine());
+			Long[] arr= new Long[n];
+			int i =0;
+			while (tokenizer.hasMoreTokens()) {
+				arr[i]  = Long.parseLong(tokenizer.nextToken());
+				i++;
+			}
+			return arr;
+		}
+
+		public List<Integer> readIntAsList() throws IOException {
 			List<Integer> list = new ArrayList<Integer>();
 			tokenizer = new StringTokenizer(reader.readLine());
 			while (tokenizer.hasMoreTokens()) {
@@ -148,73 +137,62 @@ public class Main{
 			return list;
 		}
 
-
 	}
 
 	// Fast Writer Class
-	public static class FastOut {
+	public static class FastOutput {
 
 		// Writer object
 		BufferedWriter writer;
 
 		// Constructor
-		public FastOut()
-		{
+		public FastOutput() {
 
 			// Initialize the writer
-			writer = new BufferedWriter(
-				new OutputStreamWriter(
-					System.out));
-			if (System.getProperty(
-					"ONLINE_JUDGE")
-				== null) {
+			writer = new BufferedWriter(new OutputStreamWriter(System.out));
+			if (System.getProperty("ONLINE_JUDGE") == null) {
 				try {
-					writer = new BufferedWriter(
-						new OutputStreamWriter(
-							new FileOutputStream(
-								"output.txt")));
-				}
-				catch (Exception e) {
+					writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("output.txt")));
+				} catch (Exception e) {
 				}
 			}
 		}
 
 		// Function to write the
 		// single integer
-		// to extend the fast reader class writer your function here 
-		public void writeInt(int i)
-			throws IOException
-		{
+		// to extend the fast reader class writer your function here
+		// public void writerboolean(boolean b) throws IOException{
+		// 	if (b==true) {
+		// 		writer.write("true");
+		// 	}else{
+		// 		writer.write("false");
+		// 	}
+		// }
+		public void writeInt(int i) throws IOException {
 			writer.write(Integer.toString(i));
 			writer.newLine();
 			writer.flush();
 		}
 
 		// Function to write single long
-		public void writeLong(long i)
-			throws IOException
-		{
+		public void writeLong(long i) throws IOException {
 			writer.write(Long.toString(i));
 			writer.newLine();
 			writer.flush();
 		}
+
 		// Function to write String
-		public void writeString(String s)
-			throws IOException
-		{
+		public void writeString(String s) throws IOException {
 			writer.write(s);
 			writer.newLine();
 			writer.flush();
 		}
+
 		// Function to write a Integer of
 		// array with spaces in one line
-		public void writeIntArray(int[] nums)
-			throws IOException
-		{
-			for (int i = 0;
-				i < nums.length; i++) {
-				writer.write(nums[i]
-							+ " ");
+		public void writeIntArray(int[] nums) throws IOException {
+			for (int i = 0; i < nums.length; i++) {
+				writer.write(nums[i] + " ");
 			}
 			writer.newLine();
 			writer.flush();
@@ -222,18 +200,22 @@ public class Main{
 
 		// Function to write Integer of
 		// array without spaces in 1 line
-		public void writeIntArrayWithoutSpaces(int[] nums)
-			throws IOException
-		{
-			for (int i = 0;
-				i < nums.length; i++) {
-				writer.write(
-					Integer.toString(
-						nums[i]));
+		public void writeIntArrayWithoutSpaces(int[] nums) throws IOException {
+			for (int i = 0; i < nums.length; i++) {
+				writer.write(Integer.toString(nums[i]));
 			}
 			writer.newLine();
 			writer.flush();
 		}
+		public void writelist(List<Integer> num)throws IOException {
+			for (Integer integer : num) {
+				writer.write(integer+" ");
+			
+			}
+			writer.newLine();
+			writer.flush();
+		}
+		
 
 	}
 	}
