@@ -2,13 +2,16 @@
 
 import java.io.*;
 import java.math.BigInteger;
+import java.security.spec.ECPublicKeySpec;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.StringTokenizer;
+
 
 public class Main {
 	public static void main(String[] args) throws IOException {
@@ -18,13 +21,16 @@ public class Main {
 	FastOutput out = new FastOutput();
 	/************************************************************************************************************************************/
 	// writer your code here
-		
-		
+
+
+
 	
 	/*************************************************************************************************************************************/
 	}
 	/**************************************************************************************************************************************/
 	// do not touch it
+
+
 	/**************************************************************************************************************************************/
 	//Write here the function which do you want to insert into the code during the sumbition
 	// this function will the gcd of two numbers
@@ -35,7 +41,7 @@ public class Main {
 	}
 
 	// this will return the pow of a^b
-	public static long bin_exp(long a, long b) {
+	public static long bin(long a, long b) {
 		long res = 1;
 		while (b != 0) {
 			if (b % 2 != 0)
@@ -45,12 +51,25 @@ public class Main {
 		}
 		return res;
 	}
+	public static long bin_mod(long a, long b,long mod) {
+		long res = 1;
+		a%=mod;
+		while (b != 0) {
+			if (b % 2 != 0)
+				res *= (a%mod);
+			a *= (a%mod);
+			b /= 2;
+		}
+		return res;
+	}
 
 	// this will return true if a is prime and false if not
 	public static boolean primeornot(long a) {
 		for (int i = 2; i * i <= a; i++) {
 			if (a % i == 0) {
+				// System.out.println(i);
 				return false;
+	
 			}
 		}
 		return true;
@@ -62,6 +81,24 @@ public class Main {
 		buffer = buffer.reverse();
 		if (string.equals(buffer.toString())) {
 			return true;
+		}
+		return false;
+	}
+	// this function count the number of digit in a number
+	public static int count_Digit(long a ) {
+		int count = 0 ;
+		while(a!=0){
+			a = a/10;
+			count++;
+		}
+		return count;
+	}
+	// this function will check weather a number is a perfect_square or not 
+	public static boolean perfect_square(Long n) {
+		if (n>=0){
+			if (Math.ceil((double)Math.sqrt(n)) == Math.floor((double)Math.sqrt(n))){
+			return true;
+		}
 		}
 		return false;
 	}
@@ -112,11 +149,11 @@ public class Main {
 		// Function to read a array
 		// of numsInts integers
 		// in one line
-		public int[] readIntArray(int numInts) throws IOException {
-			int[] nums = new int[numInts];
+		public int[] readIntArray(int n) throws IOException {
+			int[] nums = new int[n];
 			tokenizer = new StringTokenizer(reader.readLine());
 
-			for (int i = 0; i < numInts; i++) {
+			for (int i = 0; i < n; i++) {
 				nums[i] = Integer.parseInt(tokenizer.nextToken());
 			}
 			return nums;
@@ -184,6 +221,11 @@ public class Main {
 			writer.newLine();
 			writer.flush();
 		}
+		public void writeStringWithSpace(String s) throws IOException {
+			writer.write(s);
+			writer.write(" ");
+			writer.flush();
+		}
 
 		// Function to write a Integer of
 		// array with spaces in one line
@@ -217,7 +259,7 @@ public class Main {
 			writer.flush();
 		}
 
-		public void writer_matrix(int[][] matrix) throws IOException {
+		public void write_matrix(int[][] matrix) throws IOException {
 			for (int i = 0; i < matrix.length; i++) {
 				for (int j = 0; j < matrix[0].length; j++) {
 					writer.write(matrix[i][j] + " ");
