@@ -207,6 +207,12 @@ public class Main {
 			writer.newLine();
 			writer.flush();
 		}
+		// Function  to writer a single character
+		public void writeChar(char c)throws IOException{
+			writer.write(Character.toString(c));
+			writer.newLine();
+			writer.flush();
+		}
 
 		// Function to write single long
 		public void writeLong(long i) throws IOException {
