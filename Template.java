@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Main {
+public class Template{
 	public static void main(String[] args) throws IOException {
 		// Initialize the reader
 		FastScanner scan = new FastScanner();
