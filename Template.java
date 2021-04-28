@@ -2,7 +2,6 @@
 
 import java.io.*;
 import java.math.BigInteger;
-import java.security.spec.ECPublicKeySpec;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -12,28 +11,38 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-
 public class Main {
 	public static void main(String[] args) throws IOException {
-	// Initialize the reader
-	FastScanner scan = new FastScanner();
-	// Initialize the writer
-	FastOutput out = new FastOutput();
-	/************************************************************************************************************************************/
-	// writer your code here
+		// Initialize the reader
+		FastScanner scan = new FastScanner();
+		// Initialize the writer
+		FastOutput out = new FastOutput();
+		// Initialize the Arraylist or List
+		List<Integer> list = new ArrayList<>();
+		/************************************************************************************************************************************/
+		// writer your code here
 
 
 
-	
-	/*************************************************************************************************************************************/
+
+
+
+
+
+
+
+
+
+		/*************************************************************************************************************************************/
 	}
-	/*************************************************************************************************************************************/
+	/**************************************************************************************************************************************/
 	// do not touch it
 
-
-	/*************************************************************************************************************************************/
-	//Write here the function which do you want to insert into the code during the sumbition
+	/**************************************************************************************************************************************/
+	// Write here the function which do you want to insert into the code during the
+	// sumbition
 	// this function will the gcd of two numbers
+
 	public static long gcd(long a, long b) {
 		if (b == 0)
 			return a;
@@ -41,7 +50,7 @@ public class Main {
 	}
 
 	// this will return the pow of a^b
-	public static long bin(long a, long b) {
+	public static long binexp(long a, long b) {
 		long res = 1;
 		while (b != 0) {
 			if (b % 2 != 0)
@@ -51,13 +60,14 @@ public class Main {
 		}
 		return res;
 	}
-	public static long bin_mod(long a, long b,long mod) {
+
+	public static long binexpomod(long a, long b, long mod) {
 		long res = 1;
-		a%=mod;
+		a %= mod;
 		while (b != 0) {
 			if (b % 2 != 0)
-				res *= (a%mod);
-			a *= (a%mod);
+				res *= (a % mod);
+			a *= (a % mod);
 			b /= 2;
 		}
 		return res;
@@ -69,7 +79,7 @@ public class Main {
 			if (a % i == 0) {
 				// System.out.println(i);
 				return false;
-	
+
 			}
 		}
 		return true;
@@ -84,23 +94,36 @@ public class Main {
 		}
 		return false;
 	}
+
 	// this function count the number of digit in a number
-	public static int count_Digit(long a ) {
-		int count = 0 ;
-		while(a!=0){
-			a = a/10;
+	public static int countdigit(long a) {
+		int count = 0;
+		while (a != 0) {
+			a = a / 10;
 			count++;
 		}
 		return count;
 	}
-	// this function will check weather a number is a perfect_square or not 
+
+	// this function will check weather a number is a perfect_square or not
 	public static boolean perfect_square(Long n) {
-		if (n>=0){
-			if (Math.ceil((double)Math.sqrt(n)) == Math.floor((double)Math.sqrt(n))){
-			return true;
-		}
+		if (n >= 0) {
+			if (Math.ceil((double) Math.sqrt(n)) == Math.floor((double) Math.sqrt(n))) {
+				return true;
+			}
 		}
 		return false;
+	}
+
+	// this funciton will count the number of bit in a binary representation of a
+	// number
+	public static int countbit(Long n) {
+		int count = 0;
+		while (n > 0) {
+			count++;
+			n &= n - 1;
+		}
+		return count;
 	}
 	/*************************************************************************************************************************/
 	/*************************************************************************************************************************/
@@ -152,7 +175,6 @@ public class Main {
 		public int[] readIntArray(int n) throws IOException {
 			int[] nums = new int[n];
 			tokenizer = new StringTokenizer(reader.readLine());
-
 			for (int i = 0; i < n; i++) {
 				nums[i] = Integer.parseInt(tokenizer.nextToken());
 			}
@@ -175,6 +197,15 @@ public class Main {
 			tokenizer = new StringTokenizer(reader.readLine());
 			while (tokenizer.hasMoreTokens()) {
 				list.add(Integer.parseInt(tokenizer.nextToken()));
+			}
+			return list;
+		}
+
+		public List<Long> readLongAsList() throws IOException {
+			List<Long> list = new ArrayList<Long>();
+			tokenizer = new StringTokenizer(reader.readLine());
+			while (tokenizer.hasMoreTokens()) {
+				list.add(Long.parseLong(tokenizer.nextToken()));
 			}
 			return list;
 		}
@@ -207,8 +238,9 @@ public class Main {
 			writer.newLine();
 			writer.flush();
 		}
-		// Function  to writer a single character
-		public void writeChar(char c)throws IOException{
+
+		// Function to writer a single character
+		public void writeChar(char c) throws IOException {
 			writer.write(Character.toString(c));
 			writer.newLine();
 			writer.flush();
@@ -227,6 +259,7 @@ public class Main {
 			writer.newLine();
 			writer.flush();
 		}
+
 		public void writeStringWithSpace(String s) throws IOException {
 			writer.write(s);
 			writer.write(" ");
@@ -253,19 +286,18 @@ public class Main {
 			writer.flush();
 		}
 
-		public void writelist(List<Integer> num) throws IOException {
+		public void writeIntegerlist(List<Integer> num) throws IOException {
 			if (num != null) {
 				for (Integer integer : num) {
 					writer.write(integer + " ");
 
 				}
 			}
-
 			writer.newLine();
 			writer.flush();
 		}
 
-		public void write_matrix(int[][] matrix) throws IOException {
+		public void writeintmatrix(int[][] matrix) throws IOException {
 			for (int i = 0; i < matrix.length; i++) {
 				for (int j = 0; j < matrix[0].length; j++) {
 					writer.write(matrix[i][j] + " ");
@@ -278,6 +310,4 @@ public class Main {
 		}
 
 	}
-
 }
-
