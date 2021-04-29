@@ -5,9 +5,12 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -18,9 +21,19 @@ public class Template {
 		// Initialize the writer
 		FastOutput out = new FastOutput();
 		// Initialize the Arraylist or List
-		List<Integer> list = new ArrayList<>();
+		List<Integer> list;
+		// Intitialize the Map of <integer,integer>
+		Map<Integer, Integer> map;
+		// Intitialize the iterator for the map
+		/*  Iterator<Map.Entry<Integer, Integer>> itr = map.entrySet().iterator();*/
+		// Intitialize the PriorityQueue of <Integer>
+		// PriorityQueue<Integer> PQ = new PriorityQueue<Integer>();
+		// Intitialize the tuple or pair of <integer,integer>
+		PriorityQueue<Pair> pq;
+		
 		/************************************************************************************************************************************/
 		// writer your code here
+
 
 
 		
@@ -120,6 +133,24 @@ public class Template {
 
 	/*************************************************************************************************************************/
 	/*************************************************************************************************************************/
+	// pair class implements the comparable interface for custom sorting for other's like list,queue,etc;(Integer,Integer)
+	public static class Pair implements Comparable<Pair> {
+		Integer fv;
+		Integer sv;
+	
+		public Pair(Integer fv, Integer sv) {
+			this.fv = fv;
+			this.sv = sv;
+		}
+	
+		@Override
+		public int compareTo(Pair o) {
+			return this.fv.compareTo(o.fv);
+
+		}
+	}
+
+	/*********************************************************************************************************************** */
 	// Fast Reader Class
 	public static class FastScanner {
 
