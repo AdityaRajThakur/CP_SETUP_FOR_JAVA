@@ -56,15 +56,18 @@ public class Template {
 		// Intitialize the Map of <integer,integer> --------------------------Map
 		Map<Integer, Integer> map  = new HashMap<>();
 		// Intitialize the iterator for the map-------------Map Iterator
-		Iterator<Map.Entry<Integer, Integer>> itr = map.entrySet().iterator();
+		// Iterator<Map.Entry<Integer, Integer>> itr = map.entrySet().iterator();
 		// Intitialize the PriorityQueue of <Integer> with comparator that will pop the
 		// integer with higher value first or with higher priority
 		//-----------------------------------------------------------------------------PriorityQueue With Lambda Comparator
+		/*
 		PriorityQueue<Integer> pq = new PriorityQueue<Integer>((Integer a , Integer b)-> {
 			if(a>b) return -1;
 			else if (a<b) return 1;
 			else return 0 ;
 		});
+		
+		*/
 		//--------------------------------------------------------------PriorityQueue With Lambda Comparator with Tuple or Pair
 		/*
 		PriorityQueue<Pair> pq = new PriorityQueue<Pair>((Pair p1, Pair p2) -> {
@@ -79,7 +82,6 @@ public class Template {
 		/************************************************************************************************************************************/
 		// writer your code here
 		
-
 
 
 
@@ -183,7 +185,14 @@ public class Template {
 		}
 		return count;
 	}
-
+	public static int sumofdigits(int digit ) {
+		int sum = 0 ;
+		while(digit>0){
+			sum+=digit%10;
+			digit/=10;
+		}
+		return sum;
+	}
 	/*************************************************************************************************************************/
 	/*************************************************************************************************************************/
 	// pair class implements the comparable interface for custom sorting for other's
