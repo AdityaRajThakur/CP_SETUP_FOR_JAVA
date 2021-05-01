@@ -1,3 +1,4 @@
+
 /*Author Adityaraj*/
 /*
 ⣿⣿⣿⣿⣿⣿⡷⣯⢿⣿⣷⣻⢯⣿⡽⣻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⠸⣿⣿⣆⠹⣿⣿⢾⣟⣯⣿⣿⣿⣿⣿⣿⣽⣻⣿⣿⣿⣿⣿⣿⣿
@@ -46,25 +47,46 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class Template {
+
 	public static void main(String[] args) throws IOException {
 		// Initialize the reader
 		FastScanner scan = new FastScanner();
 		// Initialize the writer
 		FastOutput out = new FastOutput();
-		// Initialize the Arraylist or List
-		List<Integer> list;
-		// Intitialize the Map of <integer,integer>
-		Map<Integer, Integer> map;
-		// Intitialize the iterator for the map
-		/*  Iterator<Map.Entry<Integer, Integer>> itr = map.entrySet().iterator();*/
-		// Intitialize the PriorityQueue of <Integer>
-		// PriorityQueue<Integer> PQ = new PriorityQueue<Integer>();
-		// Intitialize the tuple or pair of <integer,integer>
-		PriorityQueue<Pair> pq;
-		
+		// Intitialize the Map of <integer,integer> --------------------------Map
+		Map<Integer, Integer> map  = new HashMap<>();
+		// Intitialize the iterator for the map-------------Map Iterator
+		Iterator<Map.Entry<Integer, Integer>> itr = map.entrySet().iterator();
+		// Intitialize the PriorityQueue of <Integer> with comparator that will pop the
+		// integer with higher value first or with higher priority
+		//-----------------------------------------------------------------------------PriorityQueue With Lambda Comparator
+		PriorityQueue<Integer> pq = new PriorityQueue<Integer>((Integer a , Integer b)-> {
+			if(a>b) return -1;
+			else if (a<b) return 1;
+			else return 0 ;
+		});
+		//--------------------------------------------------------------PriorityQueue With Lambda Comparator with Tuple or Pair
+		/*
+		PriorityQueue<Pair> pq = new PriorityQueue<Pair>((Pair p1, Pair p2) -> {
+			if (p1.f > p2.f)
+				return -1;
+			else if (p1.f < p2.f)
+				return 1;
+			else
+				return 0;
+		});
+		*/
 		/************************************************************************************************************************************/
 		// writer your code here
 		
+
+
+
+
+
+
+
+
 
 
 
@@ -164,21 +186,29 @@ public class Template {
 
 	/*************************************************************************************************************************/
 	/*************************************************************************************************************************/
-	// pair class implements the comparable interface for custom sorting for other's like list,queue,etc;(Integer,Integer)
-	public static class Pair implements Comparable<Pair> {
-		Integer fv;
-		Integer sv;
-	
-		public Pair(Integer fv, Integer sv) {
-			this.fv = fv;
-			this.sv = sv;
+	// pair class implements the comparable interface for custom sorting for other's
+	// like list,queue,etc;(Integer,Integer)
+	public static class Pair{
+		Integer f;
+		Integer s;
+		public Pair(Integer f, Integer s) {
+			this.f = f;
+			this.s = s;
 		}
-	
-		@Override
-		public int compareTo(Pair o) {
-			return this.fv.compareTo(o.fv);
+	}
 
+	public static class mycomparator implements Comparator<Integer> {
+
+		@Override
+		public int compare(Integer o1, Integer o2) {
+			if (o1 < o2) {
+				return 1;
+			} else if (o1 > o2) {
+				return -1;
+			}
+			return 0;
 		}
+
 	}
 
 	/*********************************************************************************************************************** */
