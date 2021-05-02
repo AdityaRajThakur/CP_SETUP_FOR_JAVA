@@ -33,55 +33,62 @@
 ⣿⣿⣿⣿⣿⣷⣮⣿⣿⣿⡌⠁⢤⣤⣤⣤⣬⣭⣴⣶⣶⣶⣆⠈⢻⣿⣿⣆⢻⣿⣿⣿⣿⣿⣿⣷⣶⣤⣌⣉⡘⠛⠻⠶⣿⣿⣿⣿⡟⣰⣫⣴⣿⣿⣿⣿⠄⣷⣿⣿⣿
 */
 import java.io.*;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Template {
 
 	public static void main(String[] args) throws IOException {
+		// initialize the mod variabel of very big prime number
+		final int mod = 1000000007;
 		// Initialize the reader
 		FastScanner scan = new FastScanner();
 		// Initialize the writer
 		FastOutput out = new FastOutput();
 		// Intitialize the Map of <integer,integer> --------------------------Map
-		Map<Integer, Integer> map  = new HashMap<>();
+
+		// Map<Integer, Integer> map = new HashMap<>();
 		// Intitialize the iterator for the map-------------Map Iterator
+
 		// Iterator<Map.Entry<Integer, Integer>> itr = map.entrySet().iterator();
+
 		// Intitialize the PriorityQueue of <Integer> with comparator that will pop the
 		// integer with higher value first or with higher priority
-		//-----------------------------------------------------------------------------PriorityQueue With Lambda Comparator
-		/*
-		PriorityQueue<Integer> pq = new PriorityQueue<Integer>((Integer a , Integer b)-> {
-			if(a>b) return -1;
-			else if (a<b) return 1;
-			else return 0 ;
-		});
-		
-		*/
-		//--------------------------------------------------------------PriorityQueue With Lambda Comparator with Tuple or Pair
-		/*
-		PriorityQueue<Pair> pq = new PriorityQueue<Pair>((Pair p1, Pair p2) -> {
-			if (p1.f > p2.f)
-				return -1;
-			else if (p1.f < p2.f)
-				return 1;
-			else
-				return 0;
-		});
-		*/
+		// -----------------------------------------------------------------------------PriorityQueue
+		// With Lambda Comparator
+
+		// PriorityQueue<Integer> pq = new PriorityQueue<Integer>((Integer a , Integer
+		// b)-> { if(a>b) return -1; else if (a<b) return 1; else return 0 ; });
+
+		// --------------------------------------------------------------PriorityQueue
+		// With Lambda Comparator with Tuple or Pair
+
+		// PriorityQueue<Pair> pq = new PriorityQueue<Pair>((Pair p1, Pair p2) -> { if
+		// (p1.f > p2.f) return -1; else if (p1.f < p2.f) return 1; else return 0; });
+
 		/************************************************************************************************************************************/
 		// writer your code here
-		
+			int t = scan.readInt();
+			while(t-->0){
+				String[] str= scan.readString().trim().split(" ");
+				int n = Integer.parseInt(str[0]);
+				int k = Integer.parseInt(str[1]);
+				int[] arr =scan.readIntArray(n);
+				int sum = 0 ;
+				for (int i : arr) {
+					sum+=i;
+				}
+				if(sum==k){
+					out.writeString("NO");
+					continue;
+				}else{
+					out.writeString("YES");
+				}
+				Arrays.sort(arr);
+				out.writeIntArray(arr);
+			}
+
+
+
 
 
 
@@ -95,6 +102,7 @@ public class Template {
 
 		/*************************************************************************************************************************************/
 	}
+
 	/**************************************************************************************************************************************/
 	// do not touch it
 
@@ -126,8 +134,8 @@ public class Template {
 		a %= mod;
 		while (b != 0) {
 			if (b % 2 != 0)
-				res *= (a % mod);
-			a *= (a % mod);
+				res = (res % mod) * (a % mod);
+			a = (a % mod) * (a % mod);
 			b /= 2;
 		}
 		return res;
@@ -185,21 +193,36 @@ public class Template {
 		}
 		return count;
 	}
-	public static int sumofdigits(int digit ) {
-		int sum = 0 ;
-		while(digit>0){
-			sum+=digit%10;
-			digit/=10;
+
+	// this method will return the sum of its digit
+	public static int sumofdigits(int digit) {
+		int sum = 0;
+		while (digit > 0) {
+			sum += digit % 10;
+			digit /= 10;
 		}
 		return sum;
+	}
+
+	// this method will return floor sprt of a number
+	public static int Sqrt(int n) {
+		long L = 0;
+		long R = n + 1;
+		while(R - L >= 2) {
+			long M = (L + R) / 2;
+			if(M * M <= n) L = M; // dismiss all values < M
+			else R = M; // dismiss all values > M
+		}
+		return (int)L;
 	}
 	/*************************************************************************************************************************/
 	/*************************************************************************************************************************/
 	// pair class implements the comparable interface for custom sorting for other's
 	// like list,queue,etc;(Integer,Integer)
-	public static class Pair{
+	public static class Pair {
 		Integer f;
 		Integer s;
+
 		public Pair(Integer f, Integer s) {
 			this.f = f;
 			this.s = s;
