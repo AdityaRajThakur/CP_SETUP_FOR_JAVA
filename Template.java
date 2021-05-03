@@ -69,23 +69,18 @@ public class Template {
 		// writer your code here
 			int t = scan.readInt();
 			while(t-->0){
-				String[] str= scan.readString().trim().split(" ");
-				int n = Integer.parseInt(str[0]);
-				int k = Integer.parseInt(str[1]);
-				int[] arr =scan.readIntArray(n);
-				int sum = 0 ;
-				for (int i : arr) {
-					sum+=i;
-				}
-				if(sum==k){
+				int n  = scan.readInt();
+					if(n%2==0 && perfectsquare(n/2)){
+						out.writeString("YES");
+						continue;
+					}
+					if(n%4==0 && perfectsquare(n/4)){
+						out.writeString("YES");
+						continue;
+					}
 					out.writeString("NO");
-					continue;
-				}else{
-					out.writeString("YES");
+
 				}
-				Arrays.sort(arr);
-				out.writeIntArray(arr);
-			}
 
 
 
@@ -105,12 +100,11 @@ public class Template {
 
 	/**************************************************************************************************************************************/
 	// do not touch it
-
 	/**************************************************************************************************************************************/
 	// Write here the function which do you want to insert into the code during the
 	// sumbition
-	// this function will the gcd of two numbers
 
+	// this function will the gcd of two numbers
 	public static long gcd(long a, long b) {
 		if (b == 0)
 			return a;
@@ -172,19 +166,8 @@ public class Template {
 		}
 		return count;
 	}
-
-	// this function will check weather a number is a perfect_square or not
-	public static boolean perfect_square(Long n) {
-		if (n >= 0) {
-			if (Math.ceil((double) Math.sqrt(n)) == Math.floor((double) Math.sqrt(n))) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	// this funciton will count the number of bit in a binary representation of a
-	// number
+	
+	// this funciton will count the number of bit in a binary representation of a number
 	public static int countbit(Long n) {
 		int count = 0;
 		while (n > 0) {
@@ -204,17 +187,15 @@ public class Template {
 		return sum;
 	}
 
-	// this method will return floor sprt of a number
-	public static int Sqrt(int n) {
-		long L = 0;
-		long R = n + 1;
-		while(R - L >= 2) {
-			long M = (L + R) / 2;
-			if(M * M <= n) L = M; // dismiss all values < M
-			else R = M; // dismiss all values > M
+	// this method check that a number is a perfect square or not 
+	public static boolean perfectsquare(long n ) {
+		if(n>=0){
+			int sr  = (int)Math.sqrt(n);
+			return sr*sr==n;
 		}
-		return (int)L;
+		return false;
 	}
+	
 	/*************************************************************************************************************************/
 	/*************************************************************************************************************************/
 	// pair class implements the comparable interface for custom sorting for other's
