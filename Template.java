@@ -55,13 +55,13 @@ public class Template {
 		// Intitialize the PriorityQueue of <Integer> with comparator
 		// -----------------------------------------------------------------------------PriorityQueue
 
-		// PriorityQueue<Integer> pq = new PriorityQueue<Integer>((Integer a , Integer
+		// Queue<Integer> pq = new PriorityQueue<Integer>((Integer a , Integer
 		// b)-> { if(a>b) return -1; else if (a<b) return 1; else return 0 ; });
 
 		// --------------------------------------------------------------PriorityQueue
 		// With Lambda Comparator and Pair
 
-		// PriorityQueue<Pair<Integer, Integer>> pq = new PriorityQueue<>(
+		// Queue<Pair<Integer, Integer>> pq = new PriorityQueue<>(
 		// (Pair<Integer, Integer> p1, Pair<Integer, Integer> p2) -> {
 		// if (p1.first > p2.first)
 		// return -1;
@@ -81,9 +81,16 @@ public class Template {
 
 		// SortedSet<Integer> set = new TreeSet<Integer>();
 
+		// For the graph adjacent list ---------------------------------Adjacency--List
+
+		// List<List<Integer>> adjlist = new ArrayList<>(10);
 		/************************************************************************************************************************************/
 		// writer your code here
 			
+
+
+
+
 
 
 
@@ -100,6 +107,20 @@ public class Template {
 	/**************************************************************************************************************************************/
 	// Write here the function which do you want to insert into the code during the
 	// sumbition
+
+	// this function is depth first search
+	public static void dfs(int v, boolean[] visited, List<List<Integer>> adjlist) {
+		if (visited[v])
+			return;
+		visited[v] = true;
+		// System.out.print(v + " ");
+		for (Integer integer : adjlist.get(v)) {
+			if (visited[integer] == false) {
+				dfs(integer, visited, adjlist);
+			}
+		}
+	}
+
 	// this function will the gcd of two numbers
 	public static long gcd(long a, long b) {
 		if (b == 0)
