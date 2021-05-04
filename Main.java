@@ -1,5 +1,7 @@
 // fast input output
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class Main{
@@ -7,7 +9,7 @@ public class Main{
 		// Initialize the reader
 		FastScanner scan = new FastScanner();
 		// Initialize the writer
-		FastOut out = new FastOut();
+		FastOutput out = new FastOutput();
 /*********************************************************************************************************************************************/
 		// writer your code here
 		
