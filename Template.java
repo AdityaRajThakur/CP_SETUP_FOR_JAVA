@@ -67,33 +67,12 @@ public class Template {
 
 		/************************************************************************************************************************************/
 		// writer your code here
-			int t = scan.readInt();
-			while(t-->0){
-				int n  = scan.readInt();
-					if(n%2==0 && perfectsquare(n/2)){
-						out.writeString("YES");
-						continue;
-					}
-					if(n%4==0 && perfectsquare(n/4)){
-						out.writeString("YES");
-						continue;
-					}
-					out.writeString("NO");
-
-				}
+			out.writeString(scan.readString());
 
 
 
 
-
-
-
-
-
-
-
-
-
+			
 
 		/*************************************************************************************************************************************/
 	}
