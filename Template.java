@@ -1,4 +1,3 @@
-
 /*Author Adityaraj*/
 /*
 ⣿⣿⣿⣿⣿⣿⡷⣯⢿⣿⣷⣻⢯⣿⡽⣻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⠸⣿⣿⣆⠹⣿⣿⢾⣟⣯⣿⣿⣿⣿⣿⣿⣽⣻⣿⣿⣿⣿⣿⣿⣿
@@ -32,9 +31,9 @@
 ⣿⣿⣿⣿⣦⡙⣿⣆⢻⡌⢿⣶⢤⣉⣙⣿⣷⡀⠙⠽⠷⠄⠹⣿⣟⣿⣆⢙⣋⣤⣤⣤⣄⣀⢀⢀⢀⢀⣾⣿⣟⡷⣯⡿⢃⣼⣿⣿⣿⠇⣼⡟⣡⣿⣿⣿⢀⡿⢠⠈⣿
 ⣿⣿⣿⣿⣿⣷⣮⣿⣿⣿⡌⠁⢤⣤⣤⣤⣬⣭⣴⣶⣶⣶⣆⠈⢻⣿⣿⣆⢻⣿⣿⣿⣿⣿⣿⣷⣶⣤⣌⣉⡘⠛⠻⠶⣿⣿⣿⣿⡟⣰⣫⣴⣿⣿⣿⣿⠄⣷⣿⣿⣿
 */
+
 import java.io.*;
 import java.util.*;
-
 public class Template {
 
 	public static void main(String[] args) throws IOException {
@@ -47,32 +46,61 @@ public class Template {
 		// Intitialize the Map of <integer,integer> --------------------------Map
 
 		// Map<Integer, Integer> map = new HashMap<>();
-		// Intitialize the iterator for the map-------------Map Iterator
+
+		// Intitialize the iterator for the map-------------Map-Iterator
 
 		// Iterator<Map.Entry<Integer, Integer>> itr = map.entrySet().iterator();
 
-		// Intitialize the PriorityQueue of <Integer> with comparator that will pop the
-		// integer with higher value first or with higher priority
+		// Intitialize the PriorityQueue of <Integer> with comparator
 		// -----------------------------------------------------------------------------PriorityQueue
-		// With Lambda Comparator
 
 		// PriorityQueue<Integer> pq = new PriorityQueue<Integer>((Integer a , Integer
 		// b)-> { if(a>b) return -1; else if (a<b) return 1; else return 0 ; });
 
 		// --------------------------------------------------------------PriorityQueue
-		// With Lambda Comparator with Tuple or Pair
+		// With Lambda Comparator and Pair
 
-		// PriorityQueue<Pair> pq = new PriorityQueue<Pair>((Pair p1, Pair p2) -> { if
-		// (p1.f > p2.f) return -1; else if (p1.f < p2.f) return 1; else return 0; });
+		// PriorityQueue<Pair<Integer, Integer>> pq = new PriorityQueue<>(
+		// (Pair<Integer, Integer> p1, Pair<Integer, Integer> p2) -> {
+		// if (p1.first > p2.first)
+		// return -1;
+		// else if (p1.first < p2.first)
+		// return 1;
+		// else
+		// return 0;
+		// });
 
 		/************************************************************************************************************************************/
 		// writer your code here
-			out.writeString(scan.readString());
-
-
-
-
+		SortedSet<Integer> hello = new TreeSet<Integer>();
+		
 			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		/*************************************************************************************************************************************/
 	}
@@ -82,7 +110,6 @@ public class Template {
 	/**************************************************************************************************************************************/
 	// Write here the function which do you want to insert into the code during the
 	// sumbition
-
 	// this function will the gcd of two numbers
 	public static long gcd(long a, long b) {
 		if (b == 0)
@@ -145,8 +172,9 @@ public class Template {
 		}
 		return count;
 	}
-	
-	// this funciton will count the number of bit in a binary representation of a number
+
+	// this funciton will count the number of bit in a binary representation of a
+	// number
 	public static int countbit(Long n) {
 		int count = 0;
 		while (n > 0) {
@@ -166,31 +194,44 @@ public class Template {
 		return sum;
 	}
 
-	// this method check that a number is a perfect square or not 
-	public static boolean perfectsquare(long n ) {
-		if(n>=0){
-			int sr  = (int)Math.sqrt(n);
-			return sr*sr==n;
+	// this method check that a number is a perfect square or not
+	public static boolean perfectsquare(long n) {
+		if (n >= 0) {
+			int sr = (int) Math.sqrt(n);
+			return sr * sr == n;
 		}
 		return false;
 	}
-	
-	/*************************************************************************************************************************/
-	/*************************************************************************************************************************/
-	// pair class implements the comparable interface for custom sorting for other's
-	// like list,queue,etc;(Integer,Integer)
-	public static class Pair {
-		Integer f;
-		Integer s;
 
-		public Pair(Integer f, Integer s) {
-			this.f = f;
-			this.s = s;
+	/*************************************************************************************************************************/
+	/*************************************************************************************************************************/
+	// pair class of Pair<Integer, Integer>
+
+	// like list,queue,etc;(Integer,Integer)
+	// public static class Pair {
+	// Integer f;
+	// Integer s;
+
+	// public Pair(Integer f, Integer s) {
+	// this.f = f;
+	// this.s = s;
+	// }
+	// }
+
+	// Pair class of Generic type
+
+	static class Pair<A, B> {
+		A first;
+		B second;
+
+		// Constructor
+		public Pair(A first, B second) {
+			this.first = first;
+			this.second = second;
 		}
 	}
 
 	public static class mycomparator implements Comparator<Integer> {
-
 		@Override
 		public int compare(Integer o1, Integer o2) {
 			if (o1 < o2) {
