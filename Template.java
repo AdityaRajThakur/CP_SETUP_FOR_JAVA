@@ -69,12 +69,16 @@ public class Template {
 		// else
 		// return 0;
 		// });
-
+		//----------------------------------------------------------------Set
+		//Element in the set are not in the sorted order 
+		// Set<Integer> set = new LinkedHashSet<Integer>();
+		//---------------------------------------------------------------SortedSet
+		//use the Collection.reverseOrder() to sort the set in the decreasign order
+		// SortedSet<Integer> set = new TreeSet<Integer>();
 		/************************************************************************************************************************************/
 		// writer your code here
-		SortedSet<Integer> hello = new TreeSet<Integer>();
-		
-			
+
+
 
 
 
