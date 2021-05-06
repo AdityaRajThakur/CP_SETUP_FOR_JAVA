@@ -87,6 +87,7 @@ public class Template {
 		/************************************************************************************************************************************/
 		// writer your code here
 
+			
 
 
 
@@ -261,9 +262,12 @@ public class Template {
 		public int[] intarr; 
 		public Long[] longarr; 
 		public Float[] floatarr; 
+		public Double[] doublearr;
+
 		int sum ;
 		long longsum ;
 		float floatsum ;
+		Double doublesum;
 		// Constructor
 		public FastScanner() {
 
@@ -313,7 +317,7 @@ public class Template {
 			return intarr;
 		}
 		public Float[] readfloatArray(int n) throws IOException {
-			floatsum = 0 ;
+			floatsum = 0f;
 			floatarr = new Float[n];
 			tokenizer = new StringTokenizer(reader.readLine());
 			for (int i = 0; i < n; i++) {
@@ -321,10 +325,19 @@ public class Template {
 			}
 			return floatarr;
 		}
+		public Double[] readDoubleArray(int n) throws IOException {
+			doublesum = 0d;
+			doublearr = new Double[n];
+			tokenizer = new StringTokenizer(reader.readLine());
+			for (int i = 0; i < n; i++) {
+				doublesum+=doublearr[i] = Double.parseDouble(tokenizer.nextToken());
+			}
+			return doublearr;
+		}
 
 		public Long[] readLongArray(int n) throws IOException {
 			tokenizer = new StringTokenizer(reader.readLine());
-			longsum = 0 ;
+			longsum = 0L;
 			longarr = new Long[n];
 			int i = 0;
 			while (tokenizer.hasMoreTokens()) {
