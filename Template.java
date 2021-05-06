@@ -260,8 +260,10 @@ public class Template {
 		BufferedReader reader;
 		public int[] intarr; 
 		public Long[] longarr; 
+		public Float[] floatarr; 
 		int sum ;
 		long longsum ;
+		float floatsum ;
 		// Constructor
 		public FastScanner() {
 
@@ -309,6 +311,15 @@ public class Template {
 				sum+=intarr[i] = Integer.parseInt(tokenizer.nextToken());
 			}
 			return intarr;
+		}
+		public Float[] readfloatArray(int n) throws IOException {
+			floatsum = 0 ;
+			floatarr = new Float[n];
+			tokenizer = new StringTokenizer(reader.readLine());
+			for (int i = 0; i < n; i++) {
+				floatsum+=floatarr[i] = Float.parseFloat(tokenizer.nextToken());
+			}
+			return floatarr;
 		}
 
 		public Long[] readLongArray(int n) throws IOException {
