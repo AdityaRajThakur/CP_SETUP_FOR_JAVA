@@ -86,7 +86,6 @@ public class Template {
 		// List<List<Integer>> adjlist = new ArrayList<>(10);
 		/************************************************************************************************************************************/
 		// writer your code here
-			
 
 
 
@@ -96,9 +95,7 @@ public class Template {
 
 
 
-
-
-
+		
 		/*************************************************************************************************************************************/
 	}
 
@@ -261,7 +258,10 @@ public class Template {
 
 		// Reader object
 		BufferedReader reader;
-
+		public int[] intarr; 
+		public Long[] longarr; 
+		int sum ;
+		long longsum ;
 		// Constructor
 		public FastScanner() {
 
@@ -302,23 +302,25 @@ public class Template {
 		// of numsInts integers
 		// in one line
 		public int[] readIntArray(int n) throws IOException {
-			int[] nums = new int[n];
+			sum = 0 ;
+			intarr = new int[n];
 			tokenizer = new StringTokenizer(reader.readLine());
 			for (int i = 0; i < n; i++) {
-				nums[i] = Integer.parseInt(tokenizer.nextToken());
+				sum+=intarr[i] = Integer.parseInt(tokenizer.nextToken());
 			}
-			return nums;
+			return intarr;
 		}
 
 		public Long[] readLongArray(int n) throws IOException {
 			tokenizer = new StringTokenizer(reader.readLine());
-			Long[] arr = new Long[n];
+			longsum = 0 ;
+			longarr = new Long[n];
 			int i = 0;
 			while (tokenizer.hasMoreTokens()) {
-				arr[i] = Long.parseLong(tokenizer.nextToken());
+				longsum+=longarr[i] = Long.parseLong(tokenizer.nextToken());
 				i++;
 			}
-			return arr;
+			return longarr;
 		}
 
 		public List<Integer> readIntAsList() throws IOException {
