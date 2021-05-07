@@ -31,7 +31,6 @@
 ⣿⣿⣿⣿⣦⡙⣿⣆⢻⡌⢿⣶⢤⣉⣙⣿⣷⡀⠙⠽⠷⠄⠹⣿⣟⣿⣆⢙⣋⣤⣤⣤⣄⣀⢀⢀⢀⢀⣾⣿⣟⡷⣯⡿⢃⣼⣿⣿⣿⠇⣼⡟⣡⣿⣿⣿⢀⡿⢠⠈⣿
 ⣿⣿⣿⣿⣿⣷⣮⣿⣿⣿⡌⠁⢤⣤⣤⣤⣬⣭⣴⣶⣶⣶⣆⠈⢻⣿⣿⣆⢻⣿⣿⣿⣿⣿⣿⣷⣶⣤⣌⣉⡘⠛⠻⠶⣿⣿⣿⣿⡟⣰⣫⣴⣿⣿⣿⣿⠄⣷⣿⣿⣿
 */
-
 import java.io.*;
 import java.util.*;
 
@@ -52,11 +51,11 @@ public class Template {
 
 		// Iterator<Map.Entry<Integer, Integer>> itr = map.entrySet().iterator();
 
-		// Intitialize the PriorityQueue of <Integer> with comparator
+		// Intitialize the PriorityQueue of <Integer> with comparator or use the
+		// Collections.reverseOrder() to sort the element in the desecnding order
 		// -----------------------------------------------------------------------------PriorityQueue
 
-		// Queue<Integer> pq = new PriorityQueue<Integer>((Integer a , Integer
-		// b)-> { if(a>b) return -1; else if (a<b) return 1; else return 0 ; });
+		// Queue<Integer> pq = new PriorityQueue<Integer>();
 
 		// --------------------------------------------------------------PriorityQueue
 		// With Lambda Comparator and Pair
@@ -84,19 +83,16 @@ public class Template {
 		// For the graph adjacent list ---------------------------------Adjacency--List
 
 		// List<List<Integer>> adjlist = new ArrayList<>(10);
+		// List<List<Integer>> adjlist = new ArrayList<>(10);
 		/************************************************************************************************************************************/
 		// writer your code here
-
-			
-
-
-
-
-
-
-
-
 		
+
+
+
+
+
+
 		/*************************************************************************************************************************************/
 	}
 
@@ -105,20 +101,7 @@ public class Template {
 	/**************************************************************************************************************************************/
 	// Write here the function which do you want to insert into the code during the
 	// sumbition
-
-	// this function is depth first search
-	public static void dfs(int v, boolean[] visited, List<List<Integer>> adjlist) {
-		if (visited[v])
-			return;
-		visited[v] = true;
-		// System.out.print(v + " ");
-		for (Integer integer : adjlist.get(v)) {
-			if (visited[integer] == false) {
-				dfs(integer, visited, adjlist);
-			}
-		}
-	}
-
+	
 	// this function will the gcd of two numbers
 	public static long gcd(long a, long b) {
 		if (b == 0)
@@ -259,15 +242,16 @@ public class Template {
 
 		// Reader object
 		BufferedReader reader;
-		public int[] intarr; 
-		public Long[] longarr; 
-		public Float[] floatarr; 
+		public int[] intarr;
+		public Long[] longarr;
+		public Float[] floatarr;
 		public Double[] doublearr;
 
-		int sum ;
-		long longsum ;
-		float floatsum ;
+		int sum;
+		long longsum;
+		float floatsum;
 		Double doublesum;
+
 		// Constructor
 		public FastScanner() {
 
@@ -308,29 +292,31 @@ public class Template {
 		// of numsInts integers
 		// in one line
 		public int[] readIntArray(int n) throws IOException {
-			sum = 0 ;
+			sum = 0;
 			intarr = new int[n];
 			tokenizer = new StringTokenizer(reader.readLine());
 			for (int i = 0; i < n; i++) {
-				sum+=intarr[i] = Integer.parseInt(tokenizer.nextToken());
+				sum += intarr[i] = Integer.parseInt(tokenizer.nextToken());
 			}
 			return intarr;
 		}
+
 		public Float[] readfloatArray(int n) throws IOException {
 			floatsum = 0f;
 			floatarr = new Float[n];
 			tokenizer = new StringTokenizer(reader.readLine());
 			for (int i = 0; i < n; i++) {
-				floatsum+=floatarr[i] = Float.parseFloat(tokenizer.nextToken());
+				floatsum += floatarr[i] = Float.parseFloat(tokenizer.nextToken());
 			}
 			return floatarr;
 		}
+
 		public Double[] readDoubleArray(int n) throws IOException {
 			doublesum = 0d;
 			doublearr = new Double[n];
 			tokenizer = new StringTokenizer(reader.readLine());
 			for (int i = 0; i < n; i++) {
-				doublesum+=doublearr[i] = Double.parseDouble(tokenizer.nextToken());
+				doublesum += doublearr[i] = Double.parseDouble(tokenizer.nextToken());
 			}
 			return doublearr;
 		}
@@ -341,7 +327,7 @@ public class Template {
 			longarr = new Long[n];
 			int i = 0;
 			while (tokenizer.hasMoreTokens()) {
-				longsum+=longarr[i] = Long.parseLong(tokenizer.nextToken());
+				longsum += longarr[i] = Long.parseLong(tokenizer.nextToken());
 				i++;
 			}
 			return longarr;
