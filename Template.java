@@ -1,7 +1,10 @@
 
 /*Author Adityaraj*/
 import java.io.*;
+import java.math.BigInteger;
 import java.util.*;
+import java.util.Map.Entry;
+import java.math.*;
 
 public class Template {
 
@@ -56,16 +59,57 @@ public class Template {
 
 		/************************************************************************************************************************************/
 		// writer your code here
-			
+		Map<Integer, Queue<Long>> map = new HashMap<>();
+		
+
+		// Queue<Long> pq = new PriorityQueue<>();
+		BigInteger sum;
+		int t = scan.readInt();
+		while (t-- > 0) {
+			sum = BigInteger.ZERO;
+			int n = scan.readInt();
+			String[] u = scan.readString().split(" ");
+			String[] s = scan.readString().split(" ");
+			for (int i = 0; i < n; i++) {
+				int key = Integer.parseInt(u[i]);
+				Long skill = Long.parseLong(s[i]);
+				sum = sum.add(BigInteger.valueOf(skill));
+				if (map.containsKey(key)) {
+					Queue<Long> q = map.get(key);
+					q.add(skill);
+					map.replace(key, q);
+
+				} else {
+					Queue<Long> a = new PriorityQueue<>(Collections.reverseOrder());
+					a.add(skill);
+					map.put(key, a);
+				}
+			}
 
 
+			int k = 4;
+			BigInteger s1 = BigInteger.ZERO;
+
+			while (k <= n) {
+				Iterator<Map.Entry<Integer, Queue<Long>>> itr = map.entrySet().iterator();
+				while (itr.hasNext()) {
+					Entry<Integer, Queue<Long>> element = itr.next();
+					Queue<Long> a = element.getValue();
+					int size = a.size();
+					while ((a.size()) != (size % k) && (k <= size)) {
+						s1 = s1.add(BigInteger.valueOf(a.poll()));
+					}
+				}
+				System.out.print(s1 + " ");
+				
+				s1 = BigInteger.ZERO;
+				k++;
+			}
+			System.out.println();
+			map.clear();
 
 
-
-
-
-
-
+		}
 
 		// your code end here
 		/*************************************************************************************************************************************/
