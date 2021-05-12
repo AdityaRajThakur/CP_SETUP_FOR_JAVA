@@ -53,37 +53,10 @@ public class Template {
 		// For the graph adjacent list ---------------------------------Adjacency--List
 
 		// List<List<Integer>> adjlist = new ArrayList<>(10);
-		// List<List<Integer>> adjlist = new ArrayList<>(10);
+
 		/************************************************************************************************************************************/
 		// writer your code here
-
-
-
-
-
-
-
-
-
-		String a = scan.readString();
-		String b = scan.readString();
-		int n = a.length();
-		int m = b.length();
-		// System.out.println("Length of String a is "+n);
-		// System.out.println("Length of String b is "+m);
-		int[][] dp = new int[n + 1][m + 1];
-
-		for (int i = 1; i <= n; i++) {
-			for (int j = 1; j <= m; j++) {
-				if (a.charAt(i - 1) == b.charAt(j - 1)) {
-					dp[i][j] = 1 + dp[i - 1][j - 1];
-				} else {
-					dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
-				}
-			}
-		}
-		out.writeInt(dp[n][m]);
-		// out.writeInt(solve(a, b, n, m,dp));
+			
 
 
 
@@ -94,16 +67,7 @@ public class Template {
 
 
 
-
-
-
-
-
-
-
-
-
-		//your code end here
+		// your code end here
 		/*************************************************************************************************************************************/
 		// compute the time elapsed
 		if (System.getProperty("ONLINE_JUDGE") == null) {
@@ -122,19 +86,6 @@ public class Template {
 	/**************************************************************************************************************************************/
 	// Write here the function which do you want to insert into the code during the
 	// sumbition
-	public static int solve(String a, String b, int n, int m, int[][] dp) {
-		if (n == 0 || m == 0)
-			return 0;
-		if (dp[n][m] != 0)
-			return dp[n][m];
-		if (a.charAt(n - 1) == b.charAt(m - 1)) {
-			dp[n][m] = 1 + solve(a, b, n - 1, m - 1, dp);
-			return dp[n][m];
-		} else {
-			dp[n][m] = Math.max(solve(a, b, n - 1, m, dp), solve(a, b, n, m - 1, dp));
-			return dp[n][m];
-		}
-	}
 
 	// this function will the gcd of two numbers
 	public static long gcd(long a, long b) {
