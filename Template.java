@@ -1,12 +1,11 @@
 
 /*Author Adityaraj*/
 import java.io.*;
-import java.math.BigInteger;
 import java.util.*;
-import java.util.Map.Entry;
 import java.math.*;
 
 public class Template {
+	// static int count = 0 ;
 
 	public static void main(String[] args) throws IOException {
 		long start = System.nanoTime();
@@ -30,23 +29,28 @@ public class Template {
 
 		// Queue<Integer> pq = new PriorityQueue<Integer>();
 
-		// --------------------------------------------------------------PriorityQueue
+		// ----------------------------------------------------------------------------Simple
+		// Queue
+		// Queue<Pair> pq = new LinkedList<Pair>();
+
+		// --------------------------------------------------------------PriorityQueue<Pair>
 		// With Lambda Comparator and Pair
 
-		// Queue<Pair<Integer, Integer>> pq = new PriorityQueue<>(
-		// (Pair<Integer, Integer> p1, Pair<Integer, Integer> p2) -> {
-		// if (p1.first > p2.first)
-		// return -1;
-		// else if (p1.first < p2.first)
-		// return 1;
-		// else
-		// return 0;
-		// });
+		// Queue<Pair> pq = new PriorityQueue<>(
+		// 		(Pair p1, Pair p2) -> {
+		// 			if (p1.w < p2.w)
+		// 				return -1;
+		// 			else if (p1.w > p2.w)
+		// 				return 1;
+		// 			else
+		// 				return 0;
+		// 		});
+		// Queue<Pair> pq = new LinkedList<>();
 
 		// ----------------------------------------------------------------Set
 		// Element in the set are not in the sorted order
 
-		// Set<Integer> set = new LinkedHashSet<Integer>();
+		// Set<Integer> set = new HashSet<Integer>();
 
 		// ---------------------------------------------------------------SortedSet
 		// use the Collection.reverseOrder() to sort the set in the decreasign order
@@ -55,61 +59,16 @@ public class Template {
 
 		// For the graph adjacent list ---------------------------------Adjacency--List
 
-		// List<List<Integer>> adjlist = new ArrayList<>(10);
+		// List<List<Pair>> adjlist = new ArrayList<>(10);
 
 		/************************************************************************************************************************************/
 		// writer your code here
-		Map<Integer, Queue<Long>> map = new HashMap<>();
+
+
+
+
 		
 
-		// Queue<Long> pq = new PriorityQueue<>();
-		BigInteger sum;
-		int t = scan.readInt();
-		while (t-- > 0) {
-			sum = BigInteger.ZERO;
-			int n = scan.readInt();
-			String[] u = scan.readString().split(" ");
-			String[] s = scan.readString().split(" ");
-			for (int i = 0; i < n; i++) {
-				int key = Integer.parseInt(u[i]);
-				Long skill = Long.parseLong(s[i]);
-				sum = sum.add(BigInteger.valueOf(skill));
-				if (map.containsKey(key)) {
-					Queue<Long> q = map.get(key);
-					q.add(skill);
-					map.replace(key, q);
-
-				} else {
-					Queue<Long> a = new PriorityQueue<>(Collections.reverseOrder());
-					a.add(skill);
-					map.put(key, a);
-				}
-			}
-
-
-			int k = 4;
-			BigInteger s1 = BigInteger.ZERO;
-
-			while (k <= n) {
-				Iterator<Map.Entry<Integer, Queue<Long>>> itr = map.entrySet().iterator();
-				while (itr.hasNext()) {
-					Entry<Integer, Queue<Long>> element = itr.next();
-					Queue<Long> a = element.getValue();
-					int size = a.size();
-					while ((a.size()) != (size % k) && (k <= size)) {
-						s1 = s1.add(BigInteger.valueOf(a.poll()));
-					}
-				}
-				System.out.print(s1 + " ");
-				
-				s1 = BigInteger.ZERO;
-				k++;
-			}
-			System.out.println();
-			map.clear();
-
-
-		}
 
 		// your code end here
 		/*************************************************************************************************************************************/
@@ -120,7 +79,7 @@ public class Template {
 
 				System.out.print((end - start) / 1000000 + " ms");
 
-			} catch (Exception e) {
+			} catch (Exception exception) {
 			}
 		}
 	}
@@ -130,7 +89,16 @@ public class Template {
 	/**************************************************************************************************************************************/
 	// Write here the function which do you want to insert into the code during the
 	// sumbition
-
+	public static boolean sorted(int[] arr){
+		boolean flag = true;
+		int n =arr.length;
+		for (int i = 0; i < n-1; i++) {
+			if(arr[i]>arr[i+1]){
+				flag = false;
+			}
+		}
+		return flag;
+	}
 	// this function will the gcd of two numbers
 	public static long gcd(long a, long b) {
 		if (b == 0)
@@ -229,43 +197,32 @@ public class Template {
 	// pair class of Pair<Integer, Integer>
 
 	// like list,queue,etc;(Integer,Integer)
-	// public static class Pair {
-	// Integer f;
-	// Integer s;
+	public static class Pair {
+		Integer node;
+		Integer w;
+		// Integer w;
 
-	// public Pair(Integer f, Integer s) {
-	// this.f = f;
-	// this.s = s;
-	// }
-	// }
+		public Pair(Integer node, Integer w) {
+			this.node = node;
+			this.w = w;
+			// this.w = w ;
+		}
+	}
 
 	// Pair class of Generic type
 
-	static class Pair<A, B> {
-		A first;
-		B second;
+	// static class Pair<A, B> {
+	// A first;
+	// B second;
 
-		// Constructor
-		public Pair(A first, B second) {
-			this.first = first;
-			this.second = second;
-		}
-	}
+	// Constructor
+	// public Pair(A first, B second) {
+	// this.first = first;
+	// this.second = second;
+	// }
+	// }
 
-	public static class mycomparator implements Comparator<Integer> {
-		@Override
-		public int compare(Integer o1, Integer o2) {
-			if (o1 < o2) {
-				return 1;
-			} else if (o1 > o2) {
-				return -1;
-			}
-			return 0;
-		}
-
-	}
-
-	/*********************************************************************************************************************** */
+	/********************************************************************* */
 	// Fast Reader Class
 	public static class FastScanner {
 
