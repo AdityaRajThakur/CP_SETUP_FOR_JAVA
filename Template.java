@@ -2,72 +2,31 @@
 /*Author Adityaraj*/
 import java.io.*;
 import java.util.*;
-import java.math.*;
-
 public class Template {
 	// static int count = 0 ;
 
 	public static void main(String[] args) throws IOException {
 		long start = System.nanoTime();
-		// initialize the mod variabel of very big prime number
-		final int mod = 1000000007;
 		// Initialize the reader
 		FastScanner scan = new FastScanner();
 		// Initialize the writer
 		FastOutput out = new FastOutput();
-		// Intitialize the Map of <integer,integer> --------------------------Map
-
-		// Map<Integer,Integer> map = new HashMap<>();
-
-		// Intitialize the iterator for the map-------------Map-Iterator
-
-		// Iterator<Map.Entry<Integer, Integer>> itr = map.entrySet().iterator();
-
-		// Intitialize the PriorityQueue of <Integer> with comparator or use the
-		// Collections.reverseOrder() to sort the element in the desecnding order
-		// -----------------------------------------------------------------------------PriorityQueue
-
-		// Queue<Integer> pq = new PriorityQueue<Integer>();
-
-		// ----------------------------------------------------------------------------Simple
-		// Queue
-		// Queue<Pair> pq = new LinkedList<Pair>();
-
-		// --------------------------------------------------------------PriorityQueue<Pair>
-		// With Lambda Comparator and Pair
-
-		// Queue<Pair> pq = new PriorityQueue<>(
-		// 		(Pair p1, Pair p2) -> {
-		// 			if (p1.w < p2.w)
-		// 				return -1;
-		// 			else if (p1.w > p2.w)
-		// 				return 1;
-		// 			else
-		// 				return 0;
-		// 		});
-		// Queue<Pair> pq = new LinkedList<>();
-
-		// ----------------------------------------------------------------Set
-		// Element in the set are not in the sorted order
-
-		// Set<Integer> set = new HashSet<Integer>();
-
-		// ---------------------------------------------------------------SortedSet
-		// use the Collection.reverseOrder() to sort the set in the decreasign order
-
-		// SortedSet<Integer> set = new TreeSet<Integer>();
-
-		// For the graph adjacent list ---------------------------------Adjacency--List
-
-		// List<List<Pair>> adjlist = new ArrayList<>(10);
-
 		/************************************************************************************************************************************/
 		// writer your code here
-
-
-
-
 		
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 		// your code end here
@@ -89,23 +48,13 @@ public class Template {
 	/**************************************************************************************************************************************/
 	// Write here the function which do you want to insert into the code during the
 	// sumbition
-	public static boolean sorted(int[] arr){
-		boolean flag = true;
-		int n =arr.length;
-		for (int i = 0; i < n-1; i++) {
-			if(arr[i]>arr[i+1]){
-				flag = false;
-			}
-		}
-		return flag;
-	}
+
 	// this function will the gcd of two numbers
 	public static long gcd(long a, long b) {
 		if (b == 0)
 			return a;
 		return gcd(b, a % b);
 	}
-
 	// this will return the pow of a^b
 	public static long binexp(long a, long b) {
 		long res = 1;
@@ -117,19 +66,6 @@ public class Template {
 		}
 		return res;
 	}
-
-	public static long binexpomod(long a, long b, long mod) {
-		long res = 1;
-		a %= mod;
-		while (b != 0) {
-			if (b % 2 != 0)
-				res = (res % mod) * (a % mod);
-			a = (a % mod) * (a % mod);
-			b /= 2;
-		}
-		return res;
-	}
-
 	// this will return true if a is prime and false if not
 	public static boolean primeornot(long a) {
 		for (int i = 2; i * i <= a; i++) {
@@ -141,7 +77,6 @@ public class Template {
 		}
 		return true;
 	}
-
 	// this function will check that a given string is palindrome or not
 	public static boolean palindrome(String string) {
 		StringBuffer buffer = new StringBuffer(string);
@@ -151,17 +86,6 @@ public class Template {
 		}
 		return false;
 	}
-
-	// this function count the number of digit in a number
-	public static int countdigit(long a) {
-		int count = 0;
-		while (a != 0) {
-			a = a / 10;
-			count++;
-		}
-		return count;
-	}
-
 	// this funciton will count the number of bit in a binary representation of a
 	// number
 	public static int countbit(Long n) {
@@ -171,16 +95,6 @@ public class Template {
 			n &= n - 1;
 		}
 		return count;
-	}
-
-	// this method will return the sum of its digit
-	public static int sumofdigits(int digit) {
-		int sum = 0;
-		while (digit > 0) {
-			sum += digit % 10;
-			digit /= 10;
-		}
-		return sum;
 	}
 
 	// this method check that a number is a perfect square or not
@@ -198,28 +112,27 @@ public class Template {
 
 	// like list,queue,etc;(Integer,Integer)
 	public static class Pair {
-		Integer node;
-		Integer w;
-		// Integer w;
+	Integer node;
+	Integer w;
+	// Integer w;
 
-		public Pair(Integer node, Integer w) {
-			this.node = node;
-			this.w = w;
-			// this.w = w ;
-		}
+	public Pair(Integer node, Integer w) {
+	this.node = node;
+	this.w = w;
+	// this.w = w ;
+	}
 	}
 
 	// Pair class of Generic type
 
 	// static class Pair<A, B> {
-	// A first;
-	// B second;
+	// 	A first;
+	// 	B second;
 
-	// Constructor
-	// public Pair(A first, B second) {
-	// this.first = first;
-	// this.second = second;
-	// }
+	// 	Pair(A first, B second) {
+	// 		this.first = first;
+	// 		this.second = second;
+	// 	}
 	// }
 
 	/********************************************************************* */
