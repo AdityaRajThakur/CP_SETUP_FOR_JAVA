@@ -2,9 +2,8 @@
 /*Author Adityaraj*/
 import java.io.*;
 import java.util.*;
-public class Template {
-	// static int count = 0 ;
 
+public class Template {
 	public static void main(String[] args) throws IOException {
 		long start = System.nanoTime();
 		// Initialize the reader
@@ -13,22 +12,21 @@ public class Template {
 		FastOutput out = new FastOutput();
 		/************************************************************************************************************************************/
 		// writer your code here
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		// your code end here
 		/*************************************************************************************************************************************/
 		// compute the time elapsed
@@ -55,6 +53,7 @@ public class Template {
 			return a;
 		return gcd(b, a % b);
 	}
+
 	// this will return the pow of a^b
 	public static long binexp(long a, long b) {
 		long res = 1;
@@ -66,6 +65,7 @@ public class Template {
 		}
 		return res;
 	}
+
 	// this will return true if a is prime and false if not
 	public static boolean primeornot(long a) {
 		for (int i = 2; i * i <= a; i++) {
@@ -77,6 +77,7 @@ public class Template {
 		}
 		return true;
 	}
+
 	// this function will check that a given string is palindrome or not
 	public static boolean palindrome(String string) {
 		StringBuffer buffer = new StringBuffer(string);
@@ -86,6 +87,7 @@ public class Template {
 		}
 		return false;
 	}
+
 	// this funciton will count the number of bit in a binary representation of a
 	// number
 	public static int countbit(Long n) {
@@ -112,27 +114,27 @@ public class Template {
 
 	// like list,queue,etc;(Integer,Integer)
 	public static class Pair {
-	Integer node;
-	Integer w;
-	// Integer w;
+		Integer node;
+		Integer w;
+		// Integer w;
 
-	public Pair(Integer node, Integer w) {
-	this.node = node;
-	this.w = w;
-	// this.w = w ;
-	}
+		public Pair(Integer node, Integer w) {
+			this.node = node;
+			this.w = w;
+			// this.w = w ;
+		}
 	}
 
 	// Pair class of Generic type
 
 	// static class Pair<A, B> {
-	// 	A first;
-	// 	B second;
+	// A first;
+	// B second;
 
-	// 	Pair(A first, B second) {
-	// 		this.first = first;
-	// 		this.second = second;
-	// 	}
+	// Pair(A first, B second) {
+	// this.first = first;
+	// this.second = second;
+	// }
 	// }
 
 	/********************************************************************* */
