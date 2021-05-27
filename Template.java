@@ -12,24 +12,6 @@ public class Template {
 		FastOutput out = new FastOutput();
 		/************************************************************************************************************************************/
 		// writer your code here
-		String str = scan.readString();
-		String str1 = scan.readString();
-
-		int m = str.length();
-		int n = str1.length();
-		int[][] dp = new int[m + 1][n + 1];
-		int length = se(str, str1, m, n, dp);
-		if (length == n) {
-			out.writeString("YES it is a subsequence of string first ");
-		} else {
-			out.writeString("NO it is not a subsquence of string of first ");
-		}
-		for (int[] is : dp) {
-			for (int i : is) {
-				System.out.print(i + " ");
-			}
-			System.out.println();
-		}
 
 		// your code end here
 		/*************************************************************************************************************************************/
@@ -40,27 +22,15 @@ public class Template {
 
 				System.out.print((end - start) / 1000000 + " ms");
 
+				System.exit(0);
 			} catch (Exception exception) {
 			}
 		}
 	}
 
 	/**************************************************************************************************************************************/
-	// do not touch it
 	/**************************************************************************************************************************************/
-	// Write here the function which do you want to insert into the code during the
 	// sumbition
-	public static int se(String a, String b, int m, int n, int[][] dp) {
-		if (m == 0 || n == 0)
-			return 0;
-		if (dp[m][n] != 0)
-			return dp[m][n];
-		if (a.charAt(m - 1) == b.charAt(n - 1)) {
-			return dp[m][n] = 1 + se(a, b, m - 1, n - 1, dp);
-		} else {
-			return dp[m][n] = Math.max(se(a, b, m - 1, n, dp), se(a, b, m, n - 1, dp));
-		}
-	}
 
 	/******************************************************************** */
 	public static int coun(int count) {
