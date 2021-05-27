@@ -12,21 +12,25 @@ public class Template {
 		FastOutput out = new FastOutput();
 		/************************************************************************************************************************************/
 		// writer your code here
+		String str = scan.readString();
+		String str1 = scan.readString();
 
+		int m = str.length();
+		int n = str1.length();
+		int[][] dp = new int[m + 1][n + 1];
+		int length = se(str, str1, m, n, dp);
+		if (length == n) {
+			out.writeString("YES it is a subsequence of string first ");
+		} else {
+			out.writeString("NO it is not a subsquence of string of first ");
+		}
+		for (int[] is : dp) {
+			for (int i : is) {
+				System.out.print(i + " ");
+			}
+			System.out.println();
+		}
 
-
-
-
-
-
-
-
-
-
-
-
-
-		
 		// your code end here
 		/*************************************************************************************************************************************/
 		// compute the time elapsed
@@ -46,6 +50,26 @@ public class Template {
 	/**************************************************************************************************************************************/
 	// Write here the function which do you want to insert into the code during the
 	// sumbition
+	public static int se(String a, String b, int m, int n, int[][] dp) {
+		if (m == 0 || n == 0)
+			return 0;
+		if (dp[m][n] != 0)
+			return dp[m][n];
+		if (a.charAt(m - 1) == b.charAt(n - 1)) {
+			return dp[m][n] = 1 + se(a, b, m - 1, n - 1, dp);
+		} else {
+			return dp[m][n] = Math.max(se(a, b, m - 1, n, dp), se(a, b, m, n - 1, dp));
+		}
+	}
+
+	/******************************************************************** */
+	public static int coun(int count) {
+		if (count > 19) {
+			return count;
+		}
+		count++;
+		return coun(count);
+	}
 
 	// this function will the gcd of two numbers
 	public static long gcd(long a, long b) {
@@ -310,9 +334,9 @@ public class Template {
 
 		// Function to write a Integer of
 		// array with spaces in one line
-		public void writeIntArray(int[] nums) throws IOException {
-			for (int i = 0; i < nums.length; i++) {
-				writer.write(nums[i] + " ");
+		public void writeIntArray(int[] arr) throws IOException {
+			for (int i = 0; i < arr.length; i++) {
+				writer.write(arr[i] + " ");
 			}
 			writer.newLine();
 			writer.flush();
@@ -320,17 +344,17 @@ public class Template {
 
 		// Function to write Integer of
 		// array without spaces in 1 line
-		public void writeIntArrayWithoutSpaces(int[] nums) throws IOException {
-			for (int i = 0; i < nums.length; i++) {
-				writer.write(Integer.toString(nums[i]));
+		public void writeIntArrayWithoutSpaces(int[] arr) throws IOException {
+			for (int i = 0; i < arr.length; i++) {
+				writer.write(Integer.toString(arr[i]));
 			}
 			writer.newLine();
 			writer.flush();
 		}
 
-		public void writeIntegerlist(List<Integer> num) throws IOException {
-			if (num != null) {
-				for (Integer integer : num) {
+		public void writeIntegerlist(List<Integer> list) throws IOException {
+			if (list != null) {
+				for (Integer integer : list) {
 					writer.write(integer + " ");
 
 				}
