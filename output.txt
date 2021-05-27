@@ -1,1 +1,0 @@
-YES it is a subsequence of string first 
