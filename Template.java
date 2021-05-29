@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.*;
 
 public class Template {
+	//initialize variable 
 	public static void main(String[] args) throws IOException {
 		long start = System.nanoTime();
 		// Initialize the reader
@@ -12,6 +13,8 @@ public class Template {
 		FastOutput out = new FastOutput();
 		/**********************************************************************************************************************************/
 		// writer your code here
+
+
 
 		// your code end here
 		/**********************************************************************************************************************************/
@@ -58,7 +61,6 @@ public class Template {
 			if (a % i == 0) {
 				// System.out.println(i);
 				return false;
-
 			}
 		}
 		return true;
