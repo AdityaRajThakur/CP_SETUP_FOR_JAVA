@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 public class Template {
-	//initialize variable 
+	// initialize variable
 	public static void main(String[] args) throws IOException {
 		long start = System.nanoTime();
 		// Initialize the reader
@@ -13,9 +13,25 @@ public class Template {
 		FastOutput out = new FastOutput();
 		/**********************************************************************************************************************************/
 		// writer your code here
-
-
-
+		int n = scan.readInt();
+		int count = 0;
+		int[] arr = scan.readIntArray(n);
+		long sum = 0L;
+		long max = Long.MIN_VALUE;
+		for (int i = 0; i < arr.length; i++) {
+			sum += (long) arr[i];
+			if (max < sum) {
+				max = sum;
+				count++;
+			}
+			if (sum < 0) {
+				// max = 0 ;
+				sum = 0;
+				// count = 0 ;
+			}
+		}
+		out.writeInt(count);
+		out.writeLong(max);
 		// your code end here
 		/**********************************************************************************************************************************/
 		// compute the time elapsed
@@ -33,7 +49,7 @@ public class Template {
 
 	/**************************************************************************************************************************************/
 	/**************************************************************************************************************************************/
-	// sumbition
+	// Function
 
 	/**************************************************************************************************************************************/
 	// this function will the gcd of two numbers
@@ -66,16 +82,6 @@ public class Template {
 		return true;
 	}
 
-	// this function will check that a given string is palindrome or not
-	public static boolean palindrome(String string) {
-		StringBuffer buffer = new StringBuffer(string);
-		buffer = buffer.reverse();
-		if (string.equals(buffer.toString())) {
-			return true;
-		}
-		return false;
-	}
-
 	// this funciton will count the number of bit in a binary representation of a
 	// number
 	public static int countbit(Long n) {
@@ -99,31 +105,18 @@ public class Template {
 	/*************************************************************************************************************************/
 	/*************************************************************************************************************************/
 	// pair class of Pair<Integer, Integer>
-
 	// like list,queue,etc;(Integer,Integer)
-	public static class Pair {
-		Integer node;
-		Integer w;
-		// Integer w;
-
-		public Pair(Integer node, Integer w) {
-			this.node = node;
-			this.w = w;
-			// this.w = w ;
-		}
-	}
-
 	// Pair class of Generic type
 
-	// static class Pair<A, B> {
-	// A first;
-	// B second;
+	static class Pair<A, B> {
+		A first;
+		B second;
 
-	// Pair(A first, B second) {
-	// this.first = first;
-	// this.second = second;
-	// }
-	// }
+		Pair(A first, B second) {
+			this.first = first;
+			this.second = second;
+		}
+	}
 
 	/********************************************************************* */
 	// Fast Reader Class
@@ -135,11 +128,6 @@ public class Template {
 		public Long[] longarr;
 		public Float[] floatarr;
 		public Double[] doublearr;
-
-		int sum;
-		long longsum;
-		float floatsum;
-		Double doublesum;
 
 		// Constructor
 		public FastScanner() {
@@ -181,42 +169,42 @@ public class Template {
 		// of numsInts integers
 		// in one line
 		public int[] readIntArray(int n) throws IOException {
-			sum = 0;
+
 			intarr = new int[n];
 			tokenizer = new StringTokenizer(reader.readLine());
 			for (int i = 0; i < n; i++) {
-				sum += intarr[i] = Integer.parseInt(tokenizer.nextToken());
+				intarr[i] = Integer.parseInt(tokenizer.nextToken());
 			}
 			return intarr;
 		}
 
 		public Float[] readfloatArray(int n) throws IOException {
-			floatsum = 0f;
+
 			floatarr = new Float[n];
 			tokenizer = new StringTokenizer(reader.readLine());
 			for (int i = 0; i < n; i++) {
-				floatsum += floatarr[i] = Float.parseFloat(tokenizer.nextToken());
+				floatarr[i] = Float.parseFloat(tokenizer.nextToken());
 			}
 			return floatarr;
 		}
 
 		public Double[] readDoubleArray(int n) throws IOException {
-			doublesum = 0d;
+
 			doublearr = new Double[n];
 			tokenizer = new StringTokenizer(reader.readLine());
 			for (int i = 0; i < n; i++) {
-				doublesum += doublearr[i] = Double.parseDouble(tokenizer.nextToken());
+				doublearr[i] = Double.parseDouble(tokenizer.nextToken());
 			}
 			return doublearr;
 		}
 
 		public Long[] readLongArray(int n) throws IOException {
 			tokenizer = new StringTokenizer(reader.readLine());
-			longsum = 0L;
+
 			longarr = new Long[n];
 			int i = 0;
 			while (tokenizer.hasMoreTokens()) {
-				longsum += longarr[i] = Long.parseLong(tokenizer.nextToken());
+				longarr[i] = Long.parseLong(tokenizer.nextToken());
 				i++;
 			}
 			return longarr;
