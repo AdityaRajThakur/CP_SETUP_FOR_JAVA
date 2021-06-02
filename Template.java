@@ -13,25 +13,21 @@ public class Template {
 		FastOutput out = new FastOutput();
 		/**********************************************************************************************************************************/
 		// writer your code here
-		int n = scan.readInt();
-		int count = 0;
-		int[] arr = scan.readIntArray(n);
-		long sum = 0L;
-		long max = Long.MIN_VALUE;
-		for (int i = 0; i < arr.length; i++) {
-			sum += (long) arr[i];
-			if (max < sum) {
-				max = sum;
-				count++;
-			}
-			if (sum < 0) {
-				// max = 0 ;
-				sum = 0;
-				// count = 0 ;
-			}
-		}
-		out.writeInt(count);
-		out.writeLong(max);
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		// your code end here
 		/**********************************************************************************************************************************/
 		// compute the time elapsed
