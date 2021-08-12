@@ -13,18 +13,9 @@ public class Template {
 		FastOutput out = new FastOutput();
 		/**********************************************************************************************************************************/
 		// writer your code here
-		
-
-
-
-
-
-
-
-
-
-
-
+		int one  =  (int)scan.readInt();
+		int second = (int)scan.readInt();
+		out.writeInt(one + second );
 
 
 
@@ -274,6 +265,12 @@ public class Template {
 			writer.flush();
 		}
 
+		public void writeStringWithoutNewline(String s) throws IOException {
+			writer.write(s);
+			// writer.newLine();
+			writer.flush();
+		}
+
 		public void writeStringWithSpace(String s) throws IOException {
 			writer.write(s);
 			writer.write(" ");
@@ -303,9 +300,12 @@ public class Template {
 		public void writeIntegerlist(List<Integer> list) throws IOException {
 			if (list != null) {
 				for (Integer integer : list) {
-					writer.write(integer + " ");
+				
+						writer.write(integer + " ");
+					
 
 				}
+				
 			}
 			writer.newLine();
 			writer.flush();
