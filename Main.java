@@ -3,50 +3,35 @@
 import java.io.*;
 import java.util.*;
 
-public class Template {
+public class Main {
 	// initialize variable
+
 	public static void main(String[] args) throws IOException {
-		long start = System.nanoTime();
-		// Initialize the reader
-		FastScanner scan = new FastScanner();
-		// Initialize the writer
-		FastOutput out = new FastOutput();
-		/**********************************************************************************************************************************/
-		// writer your code here
-		int one  =  (int)scan.readInt();
-		int second = (int)scan.readInt();
-		out.writeInt(one + second );
+			long start = System.nanoTime();
+			// Initialize the reader
+			FastScanner scan = new FastScanner();
+			// Initialize the writer
+			FastOutput out = new FastOutput();
+			/**********************************************************************************************************************************/
+			// writer your code here
+			out.writeString("hello world");
 
 
+			scan.readString();
+			/**************************************************************************************************************************************/
 
-		// your code end here
-		/**********************************************************************************************************************************/
-		// compute the time elapsed
-		if (System.getProperty("ONLINE_JUDGE") == null) {
-			try {
-				long end = System.nanoTime();
-
-				System.out.print((end - start) / 1000000 + " ms");
-
-				System.exit(0);
-			} catch (Exception exception) {
-			}
-		}
 	}
-
-	/**************************************************************************************************************************************/
 	/**************************************************************************************************************************************/
 	// Function
 
+
 	/**************************************************************************************************************************************/
-	// this function will the gcd of two numbers
 	public static long gcd(long a, long b) {
 		if (b == 0)
 			return a;
 		return gcd(b, a % b);
 	}
 
-	// this will return the pow of a^b
 	public static long binexp(long a, long b) {
 		long res = 1;
 		while (b != 0) {
@@ -58,7 +43,6 @@ public class Template {
 		return res;
 	}
 
-	// this will return true if a is prime and false if not
 	public static boolean primeornot(long a) {
 		for (int i = 2; i * i <= a; i++) {
 			if (a % i == 0) {
@@ -69,8 +53,6 @@ public class Template {
 		return true;
 	}
 
-	// this funciton will count the number of bit in a binary representation of a
-	// number
 	public static int countbit(Long n) {
 		int count = 0;
 		while (n > 0) {
@@ -79,8 +61,6 @@ public class Template {
 		}
 		return count;
 	}
-
-	// this method check that a number is a perfect square or not
 	public static boolean perfectsquare(long n) {
 		if (n >= 0) {
 			int sr = (int) Math.sqrt(n);
@@ -107,7 +87,7 @@ public class Template {
 
 	/********************************************************************* */
 	// Fast Reader Class
-	public static class FastScanner {
+	static class FastScanner {
 
 		// Reader object
 		BufferedReader reader;
@@ -218,7 +198,7 @@ public class Template {
 	}
 
 	// Fast Writer Class
-	public static class FastOutput {
+	static class FastOutput {
 
 		// Writer object
 		BufferedWriter writer;
@@ -300,12 +280,11 @@ public class Template {
 		public void writeIntegerlist(List<Integer> list) throws IOException {
 			if (list != null) {
 				for (Integer integer : list) {
-				
-						writer.write(integer + " ");
-					
+
+					writer.write(integer + " ");
 
 				}
-				
+
 			}
 			writer.newLine();
 			writer.flush();
