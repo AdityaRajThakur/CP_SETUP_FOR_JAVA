@@ -6,24 +6,26 @@ import java.util.*;
 public class Main {
 	// initialize variable
 
+	// Initialize the reader
+	private static FastScanner scan = new FastScanner();
+	// Initialize the writer
+	private static FastOutput out = new FastOutput();
+
 	public static void main(String[] args) throws IOException {
-			long start = System.nanoTime();
-			// Initialize the reader
-			FastScanner scan = new FastScanner();
-			// Initialize the writer
-			FastOutput out = new FastOutput();
-			/**********************************************************************************************************************************/
-			// writer your code here
-			out.writeString("hello world");
-
-
-			scan.readString();
-			/**************************************************************************************************************************************/
-
+		/**********************************************************************************************************************************/
+		int t = scan.readInt();
+		while (t != 0) {
+			solve();
+			t--;
+		}
+		/**************************************************************************************************************************************/
 	}
+
 	/**************************************************************************************************************************************/
 	// Function
-
+	public static void solve() {
+		// writer your code here
+	}
 
 	/**************************************************************************************************************************************/
 	public static long gcd(long a, long b) {
@@ -61,6 +63,7 @@ public class Main {
 		}
 		return count;
 	}
+
 	public static boolean perfectsquare(long n) {
 		if (n >= 0) {
 			int sr = (int) Math.sqrt(n);
