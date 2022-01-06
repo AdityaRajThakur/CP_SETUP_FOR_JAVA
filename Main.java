@@ -23,8 +23,9 @@ public class Main {
 
 	/**************************************************************************************************************************************/
 	// Function
-	public static void solve() {
+	public static void solve() throws IOException{
 		// writer your code here
+
 	}
 
 	/**************************************************************************************************************************************/
@@ -53,6 +54,18 @@ public class Main {
 			}
 		}
 		return true;
+	}
+	public static List<Integer> primefactorization(int n){
+		List<Integer> list = new ArrayList<>();
+		for(int i = 2; i<=Math.sqrt(n);i++){
+			while(n%i==0){
+				list.add(i);
+				n/=i;
+			}
+		}
+
+		if(n!=1) list.add(n) ;
+		return list;
 	}
 
 	public static int countbit(Long n) {
