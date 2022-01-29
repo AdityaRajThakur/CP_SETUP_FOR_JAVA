@@ -35,12 +35,12 @@ public class Main {
 	}
 
 	/**************************************************************************************************************************************/
-	static int LIS(int[] arr){
+	static int LIS(int[] arr) {
 		int n = arr.length;
 		ArrayList<Integer> lis = new ArrayList<>();
 		lis.add(arr[0]);
 		for (int i = 1; i < n; i++) {
-			if (lis.get(lis.size() - 1) <=arr[i]) {
+			if (lis.get(lis.size() - 1) <= arr[i]) {
 				lis.add(arr[i]);
 			} else {
 				int idx = upper_bound(lis, 0, lis.size(), arr[i]);
