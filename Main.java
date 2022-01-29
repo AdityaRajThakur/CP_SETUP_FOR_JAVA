@@ -51,20 +51,33 @@ public class Main {
 	}
 
 	public static int upper_bound(ArrayList<Integer> lis, int low, int high, int k) {
-		int s = low;
-		int e = high;
-		while (s != e) {
-			int mid = s + e >> 1;
+		while (low != high) {
+			int mid = low + high >> 1;
 			if (lis.get(mid) <= k) {
-				s = mid + 1;
+				low = mid + 1;
 			} else {
-				e = mid;
+				high = mid;
 			}
 		}
-		if (s == lis.size()) {
+		if (low == lis.size()) {
 			return -1;
 		}
-		return s;
+		return low;
+	}
+
+	public static int lower_bound(ArrayList<Integer> lis, int low, int high, int k) {
+		while (low != high) {
+			int mid = low + high >> 1;
+			if (lis.get(mid) < k) {
+				low = mid + 1;
+			} else {
+				high = mid;
+			}
+		}
+		if (low == lis.size()) {
+			return -1;
+		}
+		return low;
 	}
 
 	public static int nextpoweroftwo(long n) {
