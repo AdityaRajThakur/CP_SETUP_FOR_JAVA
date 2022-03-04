@@ -1,10 +1,10 @@
-
 /*Author Adityaraj*/
 import java.io.*;
 import java.util.*;
 
 public class Main {
 	// initialize variable
+	public static long M = 1000000007;
 	// Initialize the reader
 	private static FastScanner scan = new FastScanner();
 	// Initialize the writer
@@ -14,7 +14,6 @@ public class Main {
 		/**********************************************************************************************************************************/
 		int t = 1;
 		t = scan.readInt();
-
 		while (t != 0) {
 			solve();
 			t--;
@@ -24,25 +23,23 @@ public class Main {
 	}
 
 	/**************************************************************************************************************************************/
-	// Function
 	public static void solve() throws IOException {
-		int[] arr = scan.readIntArray(2);
-		int n = arr[0];
-		int m = arr[1];
-		int[] a = scan.readIntArray(n);
-		int[] b = scan.readIntArray(m);
-		out.writeInt(LIS(a) + LIS(b));
+
+
 	}
 
 	/**************************************************************************************************************************************/
+	// Function
+
+	
 	static int LIS(int[] arr) {
 		int n = arr.length;
-		ArrayList<Integer> lis = new ArrayList<>();
+		List<Integer> lis = new ArrayList<>();
 		lis.add(arr[0]);
 		for (int i = 1; i < n; i++) {
 			if (lis.get(lis.size() - 1) <= arr[i]) {
 				lis.add(arr[i]);
-			} else {
+			} else {	
 				int idx = upper_bound(lis, 0, lis.size(), arr[i]);
 				lis.set(idx, arr[i]);
 			}
@@ -50,7 +47,7 @@ public class Main {
 		return lis.size();
 	}
 
-	public static int upper_bound(ArrayList<Integer> lis, int low, int high, int k) {
+	public static int upper_bound(List<Integer> lis, int low, int high, int k) {
 		while (low != high) {
 			int mid = low + high >> 1;
 			if (lis.get(mid) <= k) {
@@ -152,7 +149,7 @@ public class Main {
 		return false;
 	}
 
-	public static List<Integer> ConvertToList(int[] arr) {
+	public static List<Integer> converttolist(int[] arr) {
 		List<Integer> lis = new ArrayList<>();
 		for (int i = 0; i < arr.length; i++)
 			lis.add(arr[i]);
@@ -169,7 +166,6 @@ public class Main {
 class Pair<A, B> {
 	A first;
 	B second;
-
 	Pair(A first, B second) {
 		this.first = first;
 		this.second = second;
@@ -232,6 +228,15 @@ class FastScanner {
 		}
 		return intarr;
 	}
+	public Long[] readLongArray(int n) throws IOException {
+
+		Long[] intarr = new Long[n];
+		tokenizer = new StringTokenizer(reader.readLine());
+		for (int i = 0; i < n; i++) {
+			intarr[i] = Long.parseLong(tokenizer.nextToken());
+		}
+		return intarr;
+	}
 
 	public List<Integer> readIntAsList() throws IOException {
 		List<Integer> list = new ArrayList<Integer>();
@@ -277,6 +282,14 @@ class FastOutput {
 	public void writeInt(int i) throws IOException {
 		writer.write(Integer.toString(i));
 		writer.newLine();
+		writer.flush();
+	}
+	public void writeIntWithoutNewLine(int i) throws IOException {
+		writer.write(Integer.toString(i)+" ");
+		writer.flush();
+	}
+	public void writeLongWithoutNewLine(Long i) throws IOException {
+		writer.write(Long.toString(i)+" ");
 		writer.flush();
 	}
 
@@ -346,7 +359,7 @@ class FastOutput {
 		writer.flush();
 	}
 
-	public void writeIntegerlist(List<Integer> list) throws IOException {
+	public void writeIntegerList(List<Integer> list) throws IOException {
 		if (list != null) {
 			for (Integer integer : list) {
 
@@ -359,7 +372,7 @@ class FastOutput {
 		writer.flush();
 	}
 
-	public void writeintmatrix(int[][] matrix) throws IOException {
+	public void writeIntMatrix(int[][] matrix) throws IOException {
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix[0].length; j++) {
 				writer.write(matrix[i][j] + " ");
